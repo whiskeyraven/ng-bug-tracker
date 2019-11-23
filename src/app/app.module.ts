@@ -9,11 +9,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { BugsComponent } from './bugs/bugs.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BugsComponent
   ],
   imports: [
     BrowserModule,
