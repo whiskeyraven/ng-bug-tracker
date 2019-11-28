@@ -12,6 +12,7 @@ import { BugsComponent } from './bugs/bugs.component';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { SubHeaderComponent } from './sub-header/sub-header.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { FooterComponent } from './footer/footer.component';
     AppComponent,
     BugsComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SubHeaderComponent
   ],
   imports: [
     BrowserModule,

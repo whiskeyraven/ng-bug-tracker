@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import {
-  MatToolbarModule
+  MatToolbarModule, MatTableModule, MatFormFieldModule, MatSortModule
 } from '@angular/material';
 
 @NgModule({
@@ -10,7 +10,11 @@ import {
     CommonModule
   ],
   exports: [
-    MatToolbarModule
+    MatToolbarModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatSortModule
   ]
 })
+
 export class AngularMaterialModule { }
