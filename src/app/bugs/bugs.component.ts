@@ -26,7 +26,6 @@ export class BugsComponent implements OnInit {
     this.bugs$ = this.store.bugs$.pipe(
       filter(data => data.length !== 0),
     );
-  }
 
 }
-
+}
