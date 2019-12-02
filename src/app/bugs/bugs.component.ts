@@ -27,5 +27,8 @@ export class BugsComponent implements OnInit {
       filter(data => data.length !== 0),
     );
 
+    viewBug = (id: number) => {
+    console.log('view bug clicked: ' + id);
+  };
 }
 }
