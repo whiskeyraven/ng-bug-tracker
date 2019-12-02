@@ -1,5 +1,5 @@
 table {
-    width: 85vw;
+    width: 90vw;
 }
 
 .mat-form-field {
@@ -7,7 +7,19 @@ table {
     width: 100%;
 }
 
-// td,
-// th {
-//     width: 25%;
-// }
+td.mat-cell:last-of-type,
+th.mat-header-cell:last-of-type {
+    padding-right: 0 !important;
+}
+
+th.mat-header-cell:last-of-type {
+    padding-left: 1rem;
+}
+
+.ellipsis {
+    max-width: 200px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0 1rem 0 0;
+}
