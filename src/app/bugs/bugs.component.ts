@@ -16,6 +16,7 @@ export interface PeriodicElement {
   owner: string;
   fixer: string;
   date: string;
+  view: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
@@ -29,7 +30,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
     shortDesc:  'Page does not align correctly',
     owner: 'Bob Thompson',
     fixer: 'Eric Swanson',
-    date: '06/06/2020'
+    date: '06/06/2020',
+    view: 'view'
   },
   {
     id: 2,
@@ -38,10 +40,11 @@ const ELEMENT_DATA: PeriodicElement[] = [
     priority: '2nd',
     status: 'fixing',
     type: 'functional',
-    shortDesc:  'Page does not align',
+    shortDesc:  'Page does not align Page does not align correctly	Page does not align correctly	',
     owner: 'Bob Thomason',
     fixer: 'Derick Swanson',
-    date: '06/07/2020'
+    date: '06/07/2020',
+    view: 'view'
   },
   {
     id: 3,
@@ -53,7 +56,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
     shortDesc:  'Page does align',
     owner: 'Bob Thomasons',
     fixer: 'Derick Swansons',
-    date: '06/05/2020'
+    date: '06/05/2020',
+    view: 'view'
   },
   {
     id: 15,
@@ -65,7 +69,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
     shortDesc:  'Page does ',
     owner: 'Henry Jacobson',
     fixer: 'Bigus Dickus',
-    date: '06/06/2020'
+    date: '06/06/2020',
+    view: 'view'
   }
 ];
 
@@ -75,7 +80,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./bugs.component.scss']
 })
 export class BugsComponent implements OnInit {
-  displayedColumns: string[] = [ 'id', 'title', 'severity', 'priority', 'status', 'type', 'shortDesc', 'owner', 'fixer', 'date'];
+  displayedColumns: string[] = [ 'id', 'title', 'severity', 'priority', 'status', 'type', 'shortDesc', 'owner', 'fixer', 'date', 'view'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
@@ -86,5 +91,8 @@ export class BugsComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
+  viewBug = (id: number) => {
+    console.log('view bug clicked: ' + id);
+  }
 }
 
