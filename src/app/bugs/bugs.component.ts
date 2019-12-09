@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
+import { BugsService } from './bugs.service';
+import { tap } from 'rxjs/operators';
 
 import { Store } from '../common/store.service';
 import { Bug } from './bug.model';
