@@ -1,5 +1,5 @@
 export interface Bug {
-  id: number;
+  id: string;
   title: string;
   severity: string;
   priority: string;

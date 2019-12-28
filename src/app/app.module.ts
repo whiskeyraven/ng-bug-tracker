@@ -18,6 +18,7 @@ import { TruncatePipe } from './truncate.pipe';
 import { BugListComponent } from './bug-list/bug-list.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { BugListComponent } from './bug-list/bug-list.component';
   imports: [
   BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
