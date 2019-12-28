@@ -1,0 +1,20 @@
+.mat-table {
+    width: 95vw;
+}
+
+// .mat-form-field {
+//     font-size: .85rem;
+//     width: 100%;
+// }
+td.mat-cell:last-of-type,
+th.mat-header-cell:last-of-type {
+    padding-right: 0 !important;
+}
+
+th.mat-header-cell:last-of-type {
+    padding-left: 1rem;
+}
+
+// td.mat-cell.critical {
+//     border-color: red;
+// }

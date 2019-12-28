@@ -27,6 +27,5 @@ export class BugsComponent implements OnInit {
       filter(data => data.length !== 0),
     );
   }
-
 }
 

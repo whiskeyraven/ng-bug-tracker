@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BugsComponent } from './bugs/bugs.component';
@@ -13,7 +14,9 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SubHeaderComponent } from './sub-header/sub-header.component';
-import { HttpClientModule } from '@angular/common/http';
+import { TruncatePipe } from './truncate.pipe';
+import { BugListComponent } from './bug-list/bug-list.component';
+
 
 
 @NgModule({
@@ -22,17 +25,20 @@ import { HttpClientModule } from '@angular/common/http';
     BugsComponent,
     HeaderComponent,
     FooterComponent,
-    SubHeaderComponent
+    SubHeaderComponent,
+    TruncatePipe,
+    BugListComponent,
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
