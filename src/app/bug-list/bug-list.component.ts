@@ -5,6 +5,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { element } from 'protractor';
 import { tap, map } from 'rxjs/operators';
 import { Bug } from './../bugs/bug.model';
+import { BugsService } from './../bugs/bugs.service';
 
 @Component({
   selector: 'app-bug-list',
@@ -18,17 +19,15 @@ export class BugListComponent implements OnInit {
   displayedColumns: string[] = [ 'id', 'title', 'severity', 'priority', 'status', 'type', 'description', 'owner', 'fixer', 'date', 'view'];
   dataSource;
 
-  constructor() { }
+  constructor(private bugsService: BugsService) { }
 
   ngOnInit() {
     this.dataSource = new MatTableDataSource(this.bugs);
     this.dataSource.sort = this.sort;
 
   }
-  viewBug = (id: number) => {
-    console.log('view bug clicked: ' + id);
+  viewBug(id: string) {
+    // this.bugsService.getBugById(id);
   }
-
-
 }
 

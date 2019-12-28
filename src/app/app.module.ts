@@ -16,6 +16,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SubHeaderComponent } from './sub-header/sub-header.component';
 import { TruncatePipe } from './truncate.pipe';
 import { BugListComponent } from './bug-list/bug-list.component';
+import { BugFormComponent } from './bug-form/bug-form.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { BugListComponent } from './bug-list/bug-list.component';
     SubHeaderComponent,
     TruncatePipe,
     BugListComponent,
+    BugFormComponent
   ],
   imports: [
   BrowserModule,
