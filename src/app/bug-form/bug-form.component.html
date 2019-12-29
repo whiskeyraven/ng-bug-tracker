@@ -1,0 +1,88 @@
+<!-- <div fxLayoutAlign="space-between end" fxLayoutGap="2rem">
+    <h1>{{bug.title}}</h1>
+    <span>{{bug.id}}</span>
+</div> -->
+<form [formGroup]="bugForm" (ngSubmit)="onSubmit(bugForm)" fxFlexAlign="column" fxLayoutGap="1rem">
+    <div fxFlexAlign="end" fxLayoutGap="3rem">
+        <div fxFlexAlign="row">
+            <mat-form-field fxFlex="30%">
+                <textarea placeholder="Title" [formControlName]="'title'" class="form-control" matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" required>
+            </textarea>
+                <mat-error *ngIf="bugForm.get('title').hasError('required')">
+                    Please provide a title
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <mat-form-field>
+            <mat-label for="'severity'">Severity</mat-label>
+            <mat-select [formControlName]="severity" name="severity" required>
+                <mat-option *ngFor="let severityLevel of severity" [value]="severityLevel.id">
+                    {{severityLevel.name}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="bugForm.get('severity').hasError('required')">Severity is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="priority">Priority</mat-label>
+            <mat-select [formControlName]="'priority'" name="priority" required>
+                <mat-option *ngFor="let priority of priorities" [value]="priority.id">
+                    {{priority.name}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="bugForm.get('priority').hasError('required')">Priority is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="status">Status</mat-label>
+            <mat-select [formControlName]="'status'" name="status" required>
+                <mat-option *ngFor="let statusLevel of status" [value]="statusLevel.id">
+                    {{statusLevel.name}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="bugForm.get('status').hasError('required')">Status is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="type">Type</mat-label>
+            <mat-select [formControlName]="'type'" name="type" required>
+                <!--multiple-->
+                <mat-option *ngFor="let type of types; let i = index" [value]="type.id">
+                    {{type.name}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="bugForm.get('type').hasError('required')">Type is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="owner">Owner</mat-label>
+            <mat-select [formControlName]="'owner'" name="owner" required>
+                <mat-option *ngFor="let owner of owners" [value]="owner.id">
+                    {{owner.name}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="bugForm.get('owner').hasError('required')">An owner is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="fixer">Fixer</mat-label>
+            <mat-select [formControlName]="'fixer'" name="fixer" required>
+                <mat-option *ngFor="let fixer of fixers" [value]="fixer.id">
+                    {{fixer.name}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="bugForm.get('fixer').hasError('required')">A fixer is required</mat-error>
+        </mat-form-field>
+    </div>
+    <div fxFlexAlign="row" fxLayoutGap="2rem">
+        <mat-form-field fxFlex="40%">
+            <textarea matInput placeholder="description" [formControlName]="'description'" class="form-control" matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="7" required></textarea>
+            <mat-error *ngIf="bugForm.get('description').hasError('required')">Please provide a detailed description</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" [formControlName]="'date'" placeholder="Choose a Due Date" name="date" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="bugForm.get('date').hasError('required')">A date is required</mat-error>
+        </mat-form-field>
+    </div>
+    <mat-divider></mat-divider>
+    <div fxLayoutAlign="end end" fxLayoutGap="1rem">
+        <button mat-raised-button type="submit" color="primary" [disabled]="bugForm.invalid">Submit</button>
+    </div>
+</form>
