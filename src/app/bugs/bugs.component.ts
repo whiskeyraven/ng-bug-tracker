@@ -16,10 +16,7 @@ export class BugsComponent implements OnInit {
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   bugs$: Observable<Bug[]>;
 
-  constructor(
-    private store: Store
-  ) {
-   }
+  constructor(private store: Store) {}
 
   ngOnInit() {
     this.store.init();

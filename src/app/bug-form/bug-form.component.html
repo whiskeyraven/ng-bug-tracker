@@ -1,4 +1,4 @@
-<!-- <div fxLayoutAlign="space-between end" fxLayoutGap="2rem">
+<!-- <div *ngIf="isEdit" fxLayoutAlign="space-between end" fxLayoutGap="2rem">
     <h1>{{bug.title}}</h1>
     <span>{{bug.id}}</span>
 </div> -->
@@ -15,7 +15,7 @@
         </div>
         <mat-form-field>
             <mat-label for="'severity'">Severity</mat-label>
-            <mat-select [formControlName]="severity" name="severity" required>
+            <mat-select [formControlName]="'severity'" name="severity" required>
                 <mat-option *ngFor="let severityLevel of severity" [value]="severityLevel.id">
                     {{severityLevel.name}}
                 </mat-option>
