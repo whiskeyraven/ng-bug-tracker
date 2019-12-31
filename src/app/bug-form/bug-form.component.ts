@@ -12,7 +12,10 @@ import { debounceTime, tap } from 'rxjs/operators' ;
   styleUrls: ['./bug-form.component.scss']
 })
 export class BugFormComponent implements OnInit {
-  constructor(private fb: FormBuilder, private bugs: BugsService) { }
+  constructor(
+    private fb: FormBuilder,
+    private bugsService: BugsService
+  ) { }
 bugFormTitle: string;
 bugFormFriendlyId: string;
 isEdit = false;
@@ -100,15 +103,30 @@ bugForm = new FormGroup ({
   //  ).subscribe();
   }
 
-  onSubmit({ value, valid }: { value: Bug, valid: boolean }) {
- console.log('severity', value);
- console.log(this.bugForm.get('title' as 'title').value, this.bugForm.valid + ' old test');
- console.log(this.bugForm.value.Severity + ' value');
- console.log(this.bugForm + ' bugForm');
- console.log(this.bugForm.controls + ' controls');
- console.log(this.bugForm.controls.values + ' controls.values');
+//   onSubmit({ value, valid }: { value: Bug, valid: boolean }) {
+//  console.log('severity', value);
+//  console.log(this.bugForm.get('title' as 'title').value, this.bugForm.valid + ' old test');
+//  console.log(this.bugForm.value.Severity + ' value');
+//  console.log(this.bugForm + ' bugForm');
+//  console.log(this.bugForm.controls + ' controls');
+//  console.log(this.bugForm.controls.values + ' controls.values');
 
-//  this.bugs.createBug(value);
+// //  this.bugs.createBug(value);
+//   }
+  onSubmit(bugForm) {
+    const newBug = {
+      title: bugForm.value.title,
+      severity: bugForm.value.severity,
+      priority: bugForm.value.priority,
+      status: bugForm.value.status,
+      type: bugForm.value.type,
+      owner: bugForm.value.owner,
+      fixer: bugForm.value.fixer,
+      description: bugForm.value.description,
+      date: bugForm.value.date._d
+    };
+    console.log('form bug data', newBug);
+    this.bugsService.createBug(newBug);
  }
 
 

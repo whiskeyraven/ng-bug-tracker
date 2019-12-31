@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 import { Bug } from '../bugs/bug.model';
@@ -12,8 +12,9 @@ const BACKEND_URL = environment.apiUrl + '/bugs/';
   providedIn: 'root'
 })
 export class Store {
-  private subject = new BehaviorSubject<Bug[]>([]);
-  bugs$: Observable<Bug[]> = this.subject.asObservable();
+  private bugs: Bug[];
+  private state$ = new BehaviorSubject<Bug[]>([]);
+  bugs$: Observable<Bug[]> = this.state$.asObservable();
 
   constructor(
     private http: HttpClient
@@ -23,8 +24,15 @@ export class Store {
     return this.http.get<{ message: string; bugs: Bug[] }>(BACKEND_URL).pipe(
       map(response => response.bugs),
     ).subscribe(bugs => {
-      this.subject.next(bugs);
+      this.bugs = bugs;
+      this.state$.next(bugs);
     });
+  }
+
+  addBug(bug) {
+    const state = [bug, ...this.state$.value];
+    this.bugs = [...state];
+    this.state$.next(state);
   }
 
 }
